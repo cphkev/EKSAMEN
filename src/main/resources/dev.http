@@ -1,0 +1,76 @@
+GET {{URL}}/trips/trips
+###
+GET {{URL}}/trips/1
+###
+POST {{URL}}/trips/create
+Content-Type: application/json
+
+{
+  "startTime": "09:00",
+  "endTime": "11:00",
+  "startPostion": 1,
+  "name": "TRIP WHERE WE ADD GUIDE",
+  "price": 100,
+  "category": "BEACH",
+  "guide": {}
+
+}
+
+###
+PUT {{URL}}/trips/update/1
+Content-Type: application/json
+
+{
+  "startTime": "03:00",
+  "endTime": "15:00",
+  "startPostion": 1,
+  "name": "TEST TRIP TO THE BEACH BUT UPDATED",
+  "price": 100,
+  "category": "BEACH",
+  "guide": {}
+
+}
+
+###
+DELETE {{URL}}/trips/delete/1
+###
+
+PUT {{URL}}/trips/addGuideToTrip/4/1
+Content-Type: application/json
+
+###
+
+GET {{URL}}/trips/getTripsByGuide/1
+###
+
+GET {{URL}}/trips/category/CITY
+###
+GET {{URL}}/trips/totalPrice
+###
+GET {{URL}}/trips/packingItemsWeightSum/1
+###
+GET {{URL}}/trips/packingItemsByCategory/snow
+###
+POST {{URL}}/auth/register
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+
+}
+
+###
+
+POST {{URL}}/auth/login
+
+{
+
+"username": "admin",
+"password": "admin123"
+
+}
+
+> {% client.global.set("jwt_token", response.body.token); %}
+
+###
