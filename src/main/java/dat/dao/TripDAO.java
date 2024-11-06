@@ -142,14 +142,10 @@ public class TripDAO implements IDao<TripDTO> , ITripGuideDAO{
             TypedQuery<Object[]> query = em.createQuery(
                     "SELECT g.id, SUM(t.price) FROM Trip t JOIN t.guide g GROUP BY g.id", Object[].class);
             List<Object[]> results = query.getResultList();
-            List<Map<String, Object>> totalPriceByGuide = new ArrayList<>();
-            for (Object[] result : results) {
-                Map<String, Object> map = new HashMap<>();
-                map.put("guideId", result[0]);
-                map.put("totalPrice", result[1]);
-                totalPriceByGuide.add(map);
-            }
-            return totalPriceByGuide;
+
+            return results.stream()
+                    .map(result -> Map.of("guideId", result[0], "totalPrice", result[1]))
+                    .collect(Collectors.toList());
         }
     }
 

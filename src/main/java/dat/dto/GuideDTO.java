@@ -2,6 +2,7 @@ package dat.dto;
 
 import dat.entities.Guide;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.HashSet;
@@ -10,6 +11,7 @@ import java.util.Set;
 
 @Setter
 @Getter
+@NoArgsConstructor
 public class GuideDTO {
     private int id;
     private String firstName;

@@ -176,15 +176,12 @@ public class TripController implements IController {
     public void getTotalPriceByGuide(Context ctx) {
         try {
             List<Map<String, Object>> totalPriceByGuide = tripDAO.getTotalPriceByGuide();
-            ctx.res().setStatus(200);
             ctx.json(totalPriceByGuide);
-        } catch (ApiException e) {
+        } catch (Exception e) {
             log.error("Error getting total price by guide: {}", e.getMessage());
-            throw new ApiException(500, e.getMessage());
+            throw new ApiException(500, "Error retrieving total prices by guide");
         }
     }
-
-
 
 
     public void getPackingItemsWeightSum(Context ctx) {

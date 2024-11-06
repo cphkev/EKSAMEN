@@ -41,6 +41,15 @@ public class Trip {
         this.guide = guide;
     }
 
+    public Trip(LocalTime startTime, LocalTime endTime, int startPostion, String name, int price, Category category) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.startPostion = startPostion;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+    }
+
     public Trip(TripDTO tripDTO){
         this.id = tripDTO.getId();
         this.startTime = tripDTO.getStartTime();

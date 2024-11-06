@@ -23,17 +23,17 @@ public class TripRoutes {
         return () -> {
             before(securityController.authenticate());
             post("/login", securityController.login(), Role.ANYONE);
-            get("/trips", tripController::getAll, Role.ANYONE);
-            get("/trips/{id}", tripController::getById, Role.ANYONE);
-            post("/trips/create", tripController::create, Role.ADMIN);
-            put("/trips/update/{id}", tripController::update, Role.ADMIN);
-            delete("/trips/delete/{id}", tripController::delete, Role.ADMIN);
-            put("/trips/addGuideToTrip/{tripId}/{guideId}", tripController::addGuideToTrip, Role.ADMIN);
-            get("/trips/getTripsByGuide/{id}", tripController::getTripsByGuide, Role.ANYONE);
-            get("/trips/category/{category}", tripController::getTripsByCategory, Role.ANYONE);
-            get("/trips/totalPrice", tripController::getTotalPriceByGuide, Role.ANYONE);
-            get("/trips/packingItemsWeightSum/{id}", tripController::getPackingItemsWeightSum, Role.ANYONE);
-            get("/trips/packingItemsByCategory/{category}", tripController::getPackingItemsByCategory, Role.ANYONE);
+            get("/", tripController::getAll, Role.ANYONE);
+            get("/{id}", tripController::getById, Role.ANYONE);
+            post("/create", tripController::create, Role.ADMIN);
+            put("/update/{id}", tripController::update, Role.ADMIN);
+            delete("/delete/{id}", tripController::delete, Role.ADMIN);
+            put("/addGuideToTrip/{tripId}/{guideId}", tripController::addGuideToTrip, Role.ADMIN);
+            get("/getTripsByGuide/{id}", tripController::getTripsByGuide, Role.ANYONE);
+            get("/category/{category}", tripController::getTripsByCategory, Role.ANYONE);
+            get("/guides/totalprice", tripController::getTotalPriceByGuide);
+            get("/packingItemsWeightSum/{id}", tripController::getPackingItemsWeightSum, Role.ANYONE);
+            get("/packingItemsByCategory/{category}", tripController::getPackingItemsByCategory, Role.ANYONE);
         };
     }
 

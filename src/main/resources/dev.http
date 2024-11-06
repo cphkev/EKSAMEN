@@ -2,8 +2,9 @@ GET {{URL}}/trips/trips
 ###
 GET {{URL}}/trips/1
 ###
-POST {{URL}}/trips/create
+POST {{URL}}/trips/trips/create
 Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
 
 {
   "startTime": "09:00",
@@ -45,7 +46,8 @@ GET {{URL}}/trips/getTripsByGuide/1
 
 GET {{URL}}/trips/category/CITY
 ###
-GET {{URL}}/trips/totalPrice
+GET {{URL}}/trips/guides/totalprice
+Authorization: Bearer {{jwt_token}}
 ###
 GET {{URL}}/trips/packingItemsWeightSum/1
 ###
